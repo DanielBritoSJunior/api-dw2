@@ -21,3 +21,11 @@ export const findAllUsers = async () => {
 export const deleteUser = async (id: number) => {
     return User.delete({where: {id}})
 }
+
+export const findUserById = async (id:number) => {
+    return User.findFirst({where: {id}})
+}
+
+export const updateUser = async (id: number, data: CreateUserDTO) => {
+    return User.update({where: {id}, data})
+}
