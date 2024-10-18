@@ -17,10 +17,14 @@ export const deleteUser = async (id: number) => {
     return User.delete({where: {id}})
 }
 
-export const findUserById = async (id:number) => {
+export const findUserById = async (id: number) => {
     return User.findFirst({where: {id}})
 }
 
 export const updateUser = async (id: number, data: UpdateUserDTO) => {
     return User.update({where: {id}, data})
+}
+
+export const findUserByIdWithTasks = async (id:number) => {
+    return User.findFirst({ where: {id}, include: {tasks: true}})
 }
